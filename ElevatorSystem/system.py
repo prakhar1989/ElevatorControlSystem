@@ -43,6 +43,8 @@ class ElevatorControlSystem:
                 e.addRequest(floor, destination)
 
     def update(self, id, floor, goal):
+        """ clears the state of the elevator with id - id and updates its
+        state with new values """
         e = self.elevators[id]
         e.update(floor, goal)
 
