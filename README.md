@@ -31,10 +31,11 @@ def pickup(floor, direction, destination):
 ```
 
 #### Assumptions
-The key assumption that design relies on is that it users of the system get on and off the elevator instantaneously. This means that when an elevator reaches a destination, the next clock tick (or step) directly results in moving the elevator towards its next goal - this is only possible when the above assumption holds.
+The key assumption that the design relies on is that it users of the system get on and off the elevator instantaneously. This means that when an elevator reaches a destination, the next clock tick (or step) directly results in moving the elevator towards its next goal - this is only possible when the above assumption holds.
 
 #### Shortcomings
-
+- The system does not factor in the capacity of the elevators while assigning a new request.
+- Theoritically, there is a possibility of starvation in the system. To se this, consider a building with one elevator and infinite floors. The first person that gets in, goes up and the elevator keeps getting a pickup request further top. In such a case, if a request from a lower floor will keep waiting in the systems waiting queue and will never be assigned to an elevator. 
 
 ### Tests
 ```
